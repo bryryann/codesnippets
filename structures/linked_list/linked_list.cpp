@@ -1,5 +1,3 @@
-#include <iostream>
-
 struct Node {
     int key;
     int value;
@@ -92,3 +90,16 @@ Node* pop_back(List *list) {
     return node;
 }
 
+Node* pop_front(List *list) {
+    Node *node = list->init;
+
+    if (!node) {
+        return nullptr;
+    }
+
+    list->init = node->next;
+    list->count--;
+    node->next = nullptr;
+
+    return node;
+}
